@@ -3,6 +3,8 @@ use seeds::Seed;
 
 pub struct Grid {
     pub cells: Vec<Cell>,
+    pub width: i16,
+    pub height: i16,
 }
 
 impl Grid {
@@ -23,7 +25,7 @@ impl Grid {
                 });
             }
         }
-        Grid{ cells: cells }
+        Grid{ cells: cells, width: width, height: height }
     }
 
     pub fn update(&mut self) {
@@ -39,7 +41,7 @@ impl Grid {
 
     pub fn draw(&mut self) {
         print!("╔");
-        for _ in 0..100 {
+        for _ in 0..self.width {
             print!("═");
         }
         println!("╗");
@@ -52,12 +54,12 @@ impl Grid {
             } else {
                 print!(" ");
             }
-            if cell.x == 99 {
+            if cell.x == self.width-1 {
                 println!("║");
             }
         }
         print!("╚");
-        for _ in 0..100 {
+        for _ in 0..self.width {
             print!("═");
         }
         println!("╝");

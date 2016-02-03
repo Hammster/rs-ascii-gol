@@ -19,9 +19,8 @@ fn main() {
     ).unwrap_or(seeds::random);
 
 
-    let grid = Arc::new(Mutex::new(Grid::new(seed, 100, 50)));
+    let grid = Arc::new(Mutex::new(Grid::new(seed, 128, 50)));
     let mut gen = 1;
-
 
     grid.lock().unwrap().draw();
 
