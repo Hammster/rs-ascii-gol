@@ -1,0 +1,7 @@
+[package]
+name = "rs-ascii-gol"
+version = "0.1.0"
+authors = ["Hans Koch <mail@hans-koch.me>"]
+
+[dependencies]
+rand = "0.3"
