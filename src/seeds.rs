@@ -6,6 +6,7 @@ pub fn named(seed: &str) -> Option<Seed> {
     match seed {
         "random" => Some(random),
         "gosper_glider" => Some(gosper_glider),
+        "glider" => Some(glider),
         _ => None,
     }
 }
@@ -64,6 +65,19 @@ pub fn gosper_glider(x: i16, y: i16) -> bool {
         (35, 3) => true,
         (36, 4) => true,
         (36, 3) => true,
+
+        _ => false
+    }
+}
+
+// hack the planet
+pub fn glider(x: i16, y: i16) -> bool {
+    match (x, y) {
+        (1, 0) => true,
+        (2, 1) => true,
+        (0, 2) => true,
+        (1, 2) => true,
+        (2, 2) => true,
 
         _ => false
     }

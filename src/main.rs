@@ -21,7 +21,15 @@ fn main() {
         u32::from_str(&s).expect("Only numbers!")
     ).unwrap_or(1);
 
-    let grid = Arc::new(Mutex::new(Grid::new(seed, 30, 15)));
+    let width = env::args().nth(3).map(|s|
+        u32::from_str(&s).expect("Only numbers!")
+    ).unwrap_or(100);
+
+    let height = env::args().nth(4).map(|s|
+        u32::from_str(&s).expect("Only numbers!")
+    ).unwrap_or(50);
+
+    let grid = Arc::new(Mutex::new(Grid::new(seed, width, height)));
     let mut gen = 1;
 
     println!("{}",max_gen);
