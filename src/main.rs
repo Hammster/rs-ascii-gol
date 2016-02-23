@@ -2,7 +2,6 @@ extern crate rand;
 
 use std::env;
 use std::sync::{Arc, Mutex};
-use std::io;
 use std::str::FromStr;
 
 use grid::Grid;
@@ -22,11 +21,11 @@ fn main() {
     ).unwrap_or(1);
 
     let width = env::args().nth(3).map(|s|
-        u32::from_str(&s).expect("Only numbers!")
+        i16::from_str(&s).expect("Only numbers!")
     ).unwrap_or(100);
 
     let height = env::args().nth(4).map(|s|
-        u32::from_str(&s).expect("Only numbers!")
+        i16::from_str(&s).expect("Only numbers!")
     ).unwrap_or(50);
 
     let grid = Arc::new(Mutex::new(Grid::new(seed, width, height)));
@@ -37,7 +36,7 @@ fn main() {
     grid.lock().unwrap().draw();
 
     for _ in 0..max_gen {
-        if(gen == max_gen){
+        if gen == max_gen {
             return;
         }
         gen += 1;
