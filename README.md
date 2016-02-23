@@ -3,6 +3,7 @@ ASCII Game of Life written in Rust, reimplementation of https://github.com/camja
 
 ## Synopsis
 `rs-ascii-gol [seed] [generations]`
+
 `cargo run [--] [seed] [generations]`
 
 
